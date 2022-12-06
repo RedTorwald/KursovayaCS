@@ -15,7 +15,7 @@ namespace KursovayaCS
 
         public float X; // X координата частицы 
         public float Y; // Y координата частицы 
-
+        
         public float SpeedX; // скорость перемещения по оси X
         public float SpeedY; // скорость перемещения по оси Y
 
@@ -31,8 +31,18 @@ namespace KursovayaCS
             Radius = 2 + rand.Next(10); //Рандомный радиус
             Life = 20 + rand.Next(100); //Рандомная длительность жизни частицы
         }
-
-
-
+        
+        public void Draw(Graphics g)  // метод создания частицы
+        {
+            //затухание
+            float k = Math.Min(1f, Life / 100);           
+            int alpha = (int)(k * 255);
+            
+            var color = Color.FromArgb(alpha, Color.Black);
+            var b = new SolidBrush(color);
+                  
+            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2); 
+            b.Dispose(); //очитска сборщиком мусора
+        }
     }
 }
