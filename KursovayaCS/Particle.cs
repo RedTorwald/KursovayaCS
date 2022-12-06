@@ -11,7 +11,12 @@ namespace KursovayaCS
         public static Random rand = new Random();
         public float Life, X, Y;       
         public int Radius; // радиус частицы             
-        public float SpeedX, SpeedY;         
+        public float SpeedX, SpeedY;    
+        
+        public Color FromColor=Color.Crimson;
+        public Color ToColor=Color.DarkSeaGreen;
+
+        
 
         public Particle()  // конструктор частицы
         {            
@@ -25,13 +30,23 @@ namespace KursovayaCS
             Radius = 2 + rand.Next(10); //Рандомный радиус
             Life = 20 + rand.Next(100); //Рандомная длительность жизни частицы
         }
+
+        public static Color MixColor(Color color1, Color color2, float k)
+        {
+            return Color.FromArgb(
+                (int)(color2.A * k + color1.A * (1 - k)),
+                (int)(color2.R * k + color1.R * (1 - k)),
+                (int)(color2.G * k + color1.G * (1 - k)),
+                (int)(color2.B * k + color1.B * (1 - k))
+            );
+        }
         
         public void Draw(Graphics g)  // метод создания частицы
         {
             //затухание
             float k = Math.Min(1f, Life / 100);           
             int alpha = (int)(k * 255);            
-            var color = Color.FromArgb(alpha, Color.Black);
+            var color = MixColor(ToColor, FromColor, k);
             var b = new SolidBrush(color);
                   
             g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2); 
