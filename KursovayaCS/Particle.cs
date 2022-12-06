@@ -9,15 +9,9 @@ namespace KursovayaCS
     internal class Particle
     {
         public static Random rand = new Random();
-
-        public float Life;       
-        public int Radius; // радиус частицы
-
-        public float X; // X координата частицы 
-        public float Y; // Y координата частицы 
-        
-        public float SpeedX; // скорость перемещения по оси X
-        public float SpeedY; // скорость перемещения по оси Y
+        public float Life, X, Y;       
+        public int Radius; // радиус частицы             
+        public float SpeedX, SpeedY;         
 
         public Particle()  // конструктор частицы
         {            
@@ -36,8 +30,7 @@ namespace KursovayaCS
         {
             //затухание
             float k = Math.Min(1f, Life / 100);           
-            int alpha = (int)(k * 255);
-            
+            int alpha = (int)(k * 255);            
             var color = Color.FromArgb(alpha, Color.Black);
             var b = new SolidBrush(color);
                   
