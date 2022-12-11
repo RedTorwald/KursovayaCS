@@ -42,7 +42,7 @@ namespace KursovayaCS
             );
         }
         
-        public void Draw(Graphics g)  // метод создания частицы
+        public virtual void Draw(Graphics g)  // метод создания частицы
         {
             //затухание
             float k = Math.Min(1f, Life / 100);           
