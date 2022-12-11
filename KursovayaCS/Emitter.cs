@@ -13,7 +13,7 @@ namespace KursovayaCS
 
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
-        public int Direction = 0; // вектор направления в градусах куда сыпет эмиттер
+        public int Direction = 0; // вектор направления в градусах 
         public int Spreading = 360; // разброс частиц относительно Direction
         public int SpeedMin = 1; // начальная минимальная скорость движения частицы          --------------------------------- taskBar
         public int SpeedMax = 10; // начальная максимальная скорость движения частицы        --------------------------------- taskBar
@@ -29,7 +29,7 @@ namespace KursovayaCS
         public float GravitationX = 0;
         public float GravitationY = 1; 
         
-        public int ParticlesCount = 500;
+        
         public int ParticlesPerTick = 1;                                                  // --------------------------------- taskBar
 
         public Color ColorFrom = Color.White; // начальный цвет частицы

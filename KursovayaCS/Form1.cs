@@ -79,5 +79,23 @@ namespace KursovayaCS
             emitters.Add(emitter);            
         }
 
+        private void tbLife_Scroll(object sender, EventArgs e)
+        {
+            foreach (Emitter emitter in emitters)
+            {
+                emitter.LifeMax= tbLife.Value;               
+                lLife.Text = $"{ tbLife.Value}";
+            } 
+        }
+
+        private void tbDegrees_Scroll(object sender, EventArgs e)
+        {
+            foreach (Emitter emitter in emitters)
+            {
+                emitter.Direction= tbDegrees.Value;  
+                emitter.Spreading= 0; 
+                lDegree.Text = $"{ tbDegrees.Value}";
+            } 
+        }
     }
 }
