@@ -9,7 +9,7 @@ namespace KursovayaCS
 {
     internal class Emitter
     {
-        List<Particle> particles = new List<Particle>();
+        public List<Particle> particles = new List<Particle>();
 
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
@@ -35,6 +35,8 @@ namespace KursovayaCS
         public Color ColorFrom = Color.White; // начальный цвет частицы
         public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
 
+        public int amountParticles=0;
+        
 
         public virtual void ResetParticle(Particle particle)  //создание частицы
         {
@@ -63,12 +65,15 @@ namespace KursovayaCS
             return particle;
         }
 
+       
+
         public void UpdateState()
-        {
+        {   
+           amountParticles+=particles.Count();
             int particlesToCreate = ParticlesPerTick; // фиксируем счетчик сколько частиц нам создавать за тик
             
             foreach (var particle in particles)
-            {
+            { 
                 if (particle.Life <= 0) // если частицы умерла
                 {
                     /* 
@@ -81,6 +86,8 @@ namespace KursovayaCS
                         ResetParticle(particle);
                     }
                 }
+               
+                
                 else
                 {     
                     // это не трогаем
@@ -89,6 +96,7 @@ namespace KursovayaCS
 
                     particle.X += particle.SpeedX;
                     particle.Y += particle.SpeedY;
+                    
                 }
             }
             while (particlesToCreate >= 1)
@@ -96,9 +104,12 @@ namespace KursovayaCS
                 particlesToCreate -= 1; 
                 var particle = CreateParticle();
                 ResetParticle(particle);
-                particles.Add(particle);  
+                particles.Add(particle); 
+                
             }
+           
         }
+        
         public void Render(Graphics g) // метод Render
         { 
             foreach (var particle in particles)

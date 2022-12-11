@@ -49,6 +49,7 @@
             this.lDegree = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.amountPart = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb2)).BeginInit();
@@ -243,11 +244,21 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "Направление";
             // 
+            // amountPart
+            // 
+            this.amountPart.AutoSize = true;
+            this.amountPart.Location = new System.Drawing.Point(318, 470);
+            this.amountPart.Name = "amountPart";
+            this.amountPart.Size = new System.Drawing.Size(113, 15);
+            this.amountPart.TabIndex = 21;
+            this.amountPart.Text = "Количество частиц";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 622);
+            this.Controls.Add(this.amountPart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lDegree);
@@ -303,5 +314,6 @@
         private Label lDegree;
         private Label label1;
         private Label label2;
+        private Label amountPart;
     }
 }

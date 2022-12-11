@@ -23,6 +23,7 @@ namespace KursovayaCS
                 {
                     emitter.UpdateState();
                     emitter.Render(g);
+                    amountPart.Text=$"Количество частиц {emitter.particles.Count}";
                 }
                // emitter.Render(g); // а тут теперь рендерим через эмиттер
             }
