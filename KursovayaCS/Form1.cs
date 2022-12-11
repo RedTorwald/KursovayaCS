@@ -29,15 +29,11 @@ namespace KursovayaCS
             pict.Invalidate();
         }
         
-
-        
         private void pict_MouseMove(object sender, MouseEventArgs e)
         {
             emitter.MousePositionX = e.X;
             emitter.MousePositionY = e.Y;
-
         }
-
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -45,8 +41,7 @@ namespace KursovayaCS
             {
                 emitter.SpeedMin=trackBar1.Value;
                 l1.Text = $"{trackBar1.Value}";
-            }
-            
+            }            
         }
 
         private void tb2_Scroll(object sender, EventArgs e)
@@ -55,8 +50,7 @@ namespace KursovayaCS
             {
                 emitter.SpeedMax= tb2.Value;
                 l2.Text = $"{ tb2.Value}";
-            }
-           
+            }           
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
@@ -65,8 +59,7 @@ namespace KursovayaCS
             {
                 emitter.ParticlesPerTick= trackBar3.Value;
                 l3.Text = $"{ trackBar3.Value}";
-            }
-            
+            }            
         }
 
         private void trackBar4_Scroll(object sender, EventArgs e)
@@ -75,17 +68,16 @@ namespace KursovayaCS
             {
                 emitter.RadiusMax= trackBar4.Value;
                 l4.Text = $"{ trackBar4.Value}";
-            }
-            
+            }            
         }
 
         private void pict_MouseClick(object sender, MouseEventArgs e)
-        {
-           
+        {           
             Emitter emitter = new Emitter();
             emitter.MousePositionX = e.X;
             emitter.MousePositionY = e.Y;
             emitters.Add(emitter);            
-        }       
+        }
+
     }
 }

@@ -26,7 +26,8 @@ namespace KursovayaCS
             //вектор скорости
             SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed); // скорость по X
             SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed); // скорость по Y
-            
+                      
+        
             Radius = 2 + rand.Next(10); //Рандомный радиус
             Life = 20 + rand.Next(100); //Рандомная длительность жизни частицы
         }
