@@ -2,14 +2,15 @@ namespace KursovayaCS
 {
     public partial class Form1 : Form
     {
-        Emitter emitter = new Emitter();       
+        Emitter emitter = new Emitter();
         List<Emitter> emitters = new List<Emitter>();
+        public Boolean Flag=false;
        
         public Form1()
         {
             InitializeComponent();
             pict.Image = new Bitmap(pict.Width, pict.Height);
-
+          
         }
         
         private void timer_Tick(object sender, EventArgs e)
@@ -71,13 +72,24 @@ namespace KursovayaCS
                 l4.Text = $"{ trackBar4.Value}";
             }            
         }
-
+        
         private void pict_MouseClick(object sender, MouseEventArgs e)
-        {           
-            Emitter emitter = new Emitter();
-            emitter.MousePositionX = e.X;
-            emitter.MousePositionY = e.Y;
-            emitters.Add(emitter);            
+        {       
+            if (e.Button == MouseButtons.Left) {
+               Emitter emitter = new Emitter();
+               emitter.MousePositionX = e.X;
+               emitter.MousePositionY = e.Y;
+               emitters.Add(emitter);
+            } 
+            
+            else if (e.Button == MouseButtons.Right) {
+                using var g = Graphics.FromImage(pict.Image);            
+                PointCounter pointCounter= new PointCounter();
+                pointCounter.AAA=e.X;
+                pointCounter.BBB=e.Y;
+                pointCounter.Render(g, e.X,e.Y);
+            }     
+                        
         }
 
         private void tbLife_Scroll(object sender, EventArgs e)
@@ -98,5 +110,11 @@ namespace KursovayaCS
                 lDegree.Text = $"{ tbDegrees.Value}";
             } 
         }
+        
+       
+        private void checkBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
+        
     }
 }

@@ -69,7 +69,7 @@ namespace KursovayaCS
 
         public void UpdateState()
         {   
-           amountParticles+=particles.Count();
+            amountParticles+=particles.Count();
             int particlesToCreate = ParticlesPerTick; // фиксируем счетчик сколько частиц нам создавать за тик
             
             foreach (var particle in particles)
@@ -110,7 +110,7 @@ namespace KursovayaCS
            
         }
         
-        public void Render(Graphics g) // метод Render
+        public virtual void Render(Graphics g) // метод Render
         { 
             foreach (var particle in particles)
             {

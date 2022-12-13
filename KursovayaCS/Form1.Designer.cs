@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.amountPart = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pict)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb2)).BeginInit();
@@ -67,6 +68,7 @@
             this.pict.TabIndex = 0;
             this.pict.TabStop = false;
             this.pict.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pict_MouseClick);
+           
             this.pict.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pict_MouseMove);
             // 
             // trackBar1
@@ -253,11 +255,23 @@
             this.amountPart.TabIndex = 21;
             this.amountPart.Text = "Количество частиц";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(318, 497);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(83, 19);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.checkBox1_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(625, 622);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.amountPart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -315,5 +329,6 @@
         private Label label1;
         private Label label2;
         private Label amountPart;
+        private CheckBox checkBox1;
     }
 }

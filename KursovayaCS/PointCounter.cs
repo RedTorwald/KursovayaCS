@@ -6,34 +6,28 @@ using System.Threading.Tasks;
 
 namespace KursovayaCS
 {
-    internal class PointCounter: Particle
+    internal class PointCounter
     {
           
-        public int Radius; // радиус  
+        public int Radius;    // радиус  
         public int PositionX; // координата X центра эмиттера
         public int PositionY; // соответствующая координата Y 
-       
-        
+         public int AAA;
+         public int BBB;     
         public PointCounter()  // конструктор частицы
         {     
-            Radius = 20;
-            /*
-            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2);
-
-            g.FillEllipse(new SolidBrush(Color.Green), -R/2, -R/2, R, R);
-            g.DrawEllipse(new Pen(Color.Green),  -R/2,-R/2, R, R);
-            g.DrawString( ((int)(timer)).ToString(), new Font("Arial", 8), 
-            new SolidBrush(Color.Green), R/3, R/3);*/            
+            this.Radius = 20;
+            this.PositionX=AAA;
+            this.PositionY=BBB;
         }
         
-        public  void Draw(Graphics g)  // метод создания частицы
-        {
-            
+        public  void Render(Graphics g,int Position, int PositionY )  // метод создания частицы
+        {            
             var b = new SolidBrush(Color.Red);         
-            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2); 
-            b.Dispose(); //очитска сборщиком мусора
+            g.FillEllipse(b, PositionX , PositionY , Radius * 2, Radius * 2); 
+          
         }
-
-
+       
+        
     }
 }
