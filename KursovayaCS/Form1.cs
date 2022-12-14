@@ -4,13 +4,14 @@ namespace KursovayaCS
     {
         Emitter emitter = new Emitter();
         List<Emitter> emitters = new List<Emitter>();
-        public Boolean Flag=false;
+         List<PointCounter> pointCounters = new List<PointCounter>();
        
         public Form1()
         {
             InitializeComponent();
             pict.Image = new Bitmap(pict.Width, pict.Height);
-          
+            ColorPoints colorPoints = new ColorPoints();
+            
         }
         
         private void timer_Tick(object sender, EventArgs e)
@@ -26,7 +27,11 @@ namespace KursovayaCS
                     emitter.Render(g);
                     amountPart.Text=$"Количество частиц {emitter.particles.Count}";
                 }
-               // emitter.Render(g); // а тут теперь рендерим через эмиттер
+                foreach (PointCounter pointCounter in pointCounters)
+                {
+                   
+                    pointCounter.Draw(g, pointCounter.PositionX, pointCounter.PositionY, 10);
+                }
             }
             pict.Invalidate();
         }
@@ -80,15 +85,18 @@ namespace KursovayaCS
                emitter.MousePositionX = e.X;
                emitter.MousePositionY = e.Y;
                emitters.Add(emitter);
+
             } 
             
             else if (e.Button == MouseButtons.Right) {
-                using var g = Graphics.FromImage(pict.Image);            
-                PointCounter pointCounter= new PointCounter();
-                pointCounter.AAA=e.X;
-                pointCounter.BBB=e.Y;
-                pointCounter.Render(g, e.X,e.Y);
+                using var g = Graphics.FromImage(pict.Image);
+                PointCounter pointCounter = new PointCounter(e.X, e.Y);
+                pointCounter.PositionX = e.X;
+                pointCounter.PositionY = e.Y;
+                pointCounters.Add(pointCounter);
+                          
             }     
+    
                         
         }
 

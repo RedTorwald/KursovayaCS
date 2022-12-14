@@ -10,22 +10,21 @@ namespace KursovayaCS
     {
           
         public int Radius;    // радиус  
-        public int PositionX; // координата X центра эмиттера
-        public int PositionY; // соответствующая координата Y 
-         public int AAA;
-         public int BBB;     
-        public PointCounter()  // конструктор частицы
-        {     
-            this.Radius = 20;
-            this.PositionX=AAA;
-            this.PositionY=BBB;
+        public float PositionX; // координата X центра эмиттера
+        public float PositionY; // соответствующая координата Y 
+            
+        public PointCounter(float PositionX, float PositionY)  // конструктор частицы
+        {  
+            this.Radius = 1;
+            this.PositionX= PositionX;
+            this.PositionY= PositionY;
         }
         
-        public  void Render(Graphics g,int Position, int PositionY )  // метод создания частицы
+        public  void Draw(Graphics g, float PositionX, float PositionY, int Radius )  // метод создания частицы
         {            
-            var b = new SolidBrush(Color.Red);         
-            g.FillEllipse(b, PositionX , PositionY , Radius * 2, Radius * 2); 
-          
+            var b = new Pen(Color.Red);
+            var a = new Pen(Color.Blue);
+            g.DrawEllipse(a, PositionX, PositionY, Radius * 2, Radius * 2);
         }
        
         
