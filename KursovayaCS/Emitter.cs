@@ -11,128 +11,77 @@ namespace KursovayaCS
     {
         public List<Particle> particles = new List<Particle>();
        
-        public List<PointCounter> counters = new List<PointCounter>();
+        public float x; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
+        public float y; // соответствующая координата Y 
+        public float radius = 0;
+        public static float direction = 0; // вектор направления в градусах 
+        public static float spreading = 360; // разброс частиц относительно Direction
+        public static float speedMin = 1; // начальная минимальная скорость движения частицы          --------------------------------- taskBar
+        public static float speedMax = 10; // начальная максимальная скорость движения частицы        --------------------------------- taskBar
+        public static float radiusMin = 2; // минимальный радиус частицы
+        public static float radiusMax = 10; // максимальный радиус частицы                            --------------------------------- taskBar
 
 
-
-        public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
-        public int Y; // соответствующая координата Y 
-        public int Direction = 0; // вектор направления в градусах 
-        public int Spreading = 360; // разброс частиц относительно Direction
-        public int SpeedMin = 1; // начальная минимальная скорость движения частицы          --------------------------------- taskBar
-        public int SpeedMax = 10; // начальная максимальная скорость движения частицы        --------------------------------- taskBar
-        public int RadiusMin = 2; // минимальный радиус частицы
-        public int RadiusMax = 10; // максимальный радиус частицы                            --------------------------------- taskBar
-
-
-        public int LifeMin = 0; // минимальное время жизни частицы
-        public int LifeMax = 100; // максимальное время жизни частицы              
+        public static float lifeMin = 0; // минимальное время жизни частицы
+        public static float lifeMax = 255; // максимальное время жизни частицы
+        public Color color;
         
-        public int MousePositionX;
-        public int MousePositionY;
         public float GravitationX = 0;
         public float GravitationY = 1; 
-        
-        
-        public int ParticlesPerTick = 1;                                                  // --------------------------------- taskBar
-
-        public Color ColorFrom = Color.White; // начальный цвет частицы
-        public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
-
-        public int amountParticles=0;
-        
-
-        public virtual void ResetParticle(Particle particle)  //создание частицы
+       
+       public Emitter(float x, float y, Color color)
         {
-            particle.life = Particle.rand.Next(LifeMin, LifeMax);
-            particle.X = MousePositionX;
-            particle.Y = MousePositionY;
-
-            var direction = Direction 
-                + (double)Particle.rand.Next(Spreading) 
-                - Spreading / 2;
-
-            var speed = Particle.rand.Next(SpeedMin, SpeedMax);
-
-            particle.speedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
-            particle.speedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
-
-            particle.radius = Particle.rand.Next(RadiusMin, RadiusMax);
+            this.x = x;
+            this.y = y;
+            this.color = color;
         }
         
+       
 
-        public virtual Particle CreateParticle()
-        {
-            var particle = new Particle();
-            particle.FromColor = ColorFrom;
-            particle.ToColor = ColorTo;
-            return particle;
-        }
+        public void UpdateState(PictureBox pict)
+        {  
 
-        public void UpdateState()
-        {   
-            amountParticles+=particles.Count();
-            int particlesToCreate = ParticlesPerTick; // фиксируем счетчик сколько частиц нам создавать за тик
-            
-            foreach (var particle in particles)
+            for (int i=0; i<particles.Count; i++)
             { 
-        /*
-                foreach (var point in impactPoints)//-------------------------------------------------------------------------------------
+
+                if (particle[i].life <= 0 || parcticle[i].y>=pict.Height || parcticle[i].y<=0
+                    || parcticle[i].x>=pict.Width || parcticle[i].x<=0)
                 {
-                    point.ImpactParticle(particle);
-                }*/
-
-
-                foreach (var point in counters)//-------------------------------------------------------------------------------------
-                {
-                    point.IntersectionParticle(particle);
-                }
-
-               
-
-
-
-                if (particle.life <= 0) // если частицы умерла
-                {
-                    /* 
-                     * то проверяем надо ли создать частицу
-                     */   
-                    if (particlesToCreate > 0) 
-                    {
-                        /* у нас как сброс частицы равносилен созданию частицы */
-                        particlesToCreate -= 1; // поэтому уменьшаем счётчик созданных частиц на 1
-                        ResetParticle(particle);
-                    }
+                    particles.Remove(particles[i]);
                 }  
                 else
                 {     
-                    // это не трогаем
-                    particle.speedX += GravitationX;
-                    particle.speedY += GravitationY;
+                    
+                    particle[i].speedX += GravitationX;
+                    particle[i].speedY += GravitationY;
 
-                    particle.X += particle.speedX;
-                    particle.Y += particle.speedY;                    
+                    particle[i].x += particle[i].speedX;
+                    particle[i].y += particle[i].speedY; 
+                    particle[i].life-=1f;
                 }
             }
-            while (particlesToCreate >= 1)
+        }
+
+        public bool Intersection(float x, float y)
+        {
+            float gX = this.x - x;
+			float gY = this.y - y;
+
+			float r = MathF.Sqrt(gX * gX + gY * gY);
+            if (r<=this.radius)
             {
-                particlesToCreate -= 1; 
-                var particle = CreateParticle();
-                ResetParticle(particle);
-                particles.Add(particle); 
-                
-            }    
-            
+                return true;
+            }
+            return false;
         }
         
-        public virtual void Render(Graphics g) // метод Render
+        public virtual void Render(Graphics g, bool isDebug) // метод Render
         { 
+            g.DrawEllipse(new Pen(color, 2), x - radius, y - radius, radius*2, radius*2);
             foreach (var particle in particles)
             {
-                particle.Draw(g);
+                particle.Draw(g, isDebug);
             }            
         }
-        
-
     }
 }

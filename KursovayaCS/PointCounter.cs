@@ -24,8 +24,8 @@ namespace KursovayaCS
       
         public void IntersectionParticle(Particle particle)
         {
-            float gX = this.PositionX - particle.X;
-            float gY = this.PositionY - particle.Y;
+            float gX = this.PositionX - particle.x;
+            float gY = this.PositionY - particle.y;
 
             double r = Math.Sqrt(gX * gX + gY * gY); // считаем расстояние от центра точки до центра частицы
             R=gX;
