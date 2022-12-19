@@ -68,9 +68,9 @@
             // 
             // pict
             // 
-            this.pict.Location = new System.Drawing.Point(42, 26);
+            this.pict.Location = new System.Drawing.Point(12, 12);
             this.pict.Name = "pict";
-            this.pict.Size = new System.Drawing.Size(475, 307);
+            this.pict.Size = new System.Drawing.Size(652, 320);
             this.pict.TabIndex = 0;
             this.pict.TabStop = false;
             this.pict.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pict_MouseClick);
@@ -78,6 +78,8 @@
             // 
             // trackBar1
             // 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.Location = new System.Drawing.Point(45, 353);
             this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
@@ -88,6 +90,8 @@
             // 
             // tb2
             // 
+            this.tb2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb2.Location = new System.Drawing.Point(45, 422);
             this.tb2.Maximum = 100;
             this.tb2.Minimum = 10;
@@ -99,15 +103,20 @@
             // 
             // trackBar3
             // 
+            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar3.Location = new System.Drawing.Point(45, 488);
-            this.trackBar3.Maximum = 50;
+            this.trackBar3.Maximum = 100;
             this.trackBar3.Name = "trackBar3";
             this.trackBar3.Size = new System.Drawing.Size(164, 45);
             this.trackBar3.TabIndex = 3;
+            this.trackBar3.Value = 1;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar3_Scroll);
             // 
             // trackBar4
             // 
+            this.trackBar4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar4.Location = new System.Drawing.Point(45, 556);
             this.trackBar4.Maximum = 50;
             this.trackBar4.Minimum = 10;
@@ -119,6 +128,8 @@
             // 
             // l1
             // 
+            this.l1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.l1.AutoSize = true;
             this.l1.Location = new System.Drawing.Point(215, 353);
             this.l1.Name = "l1";
@@ -128,6 +139,8 @@
             // 
             // l3
             // 
+            this.l3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.l3.AutoSize = true;
             this.l3.Location = new System.Drawing.Point(215, 488);
             this.l3.Name = "l3";
@@ -137,6 +150,8 @@
             // 
             // l4
             // 
+            this.l4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.l4.AutoSize = true;
             this.l4.Location = new System.Drawing.Point(215, 556);
             this.l4.Name = "l4";
@@ -152,6 +167,8 @@
             // 
             // l2
             // 
+            this.l2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.l2.AutoSize = true;
             this.l2.Location = new System.Drawing.Point(215, 422);
             this.l2.Name = "l2";
@@ -161,15 +178,20 @@
             // 
             // tbLife
             // 
+            this.tbLife.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbLife.Location = new System.Drawing.Point(318, 353);
             this.tbLife.Maximum = 200;
             this.tbLife.Name = "tbLife";
             this.tbLife.Size = new System.Drawing.Size(104, 45);
             this.tbLife.TabIndex = 10;
+            this.tbLife.Value = 200;
             this.tbLife.Scroll += new System.EventHandler(this.tbLife_Scroll);
             // 
             // lLife
             // 
+            this.lLife.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lLife.AutoSize = true;
             this.lLife.Location = new System.Drawing.Point(455, 353);
             this.lLife.Name = "lLife";
@@ -179,6 +201,8 @@
             // 
             // txt1
             // 
+            this.txt1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt1.AutoSize = true;
             this.txt1.Location = new System.Drawing.Point(45, 335);
             this.txt1.Name = "txt1";
@@ -188,6 +212,8 @@
             // 
             // txt2
             // 
+            this.txt2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt2.AutoSize = true;
             this.txt2.Location = new System.Drawing.Point(45, 404);
             this.txt2.Name = "txt2";
@@ -197,6 +223,8 @@
             // 
             // txt3
             // 
+            this.txt3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt3.AutoSize = true;
             this.txt3.Location = new System.Drawing.Point(46, 470);
             this.txt3.Name = "txt3";
@@ -206,6 +234,8 @@
             // 
             // txt4
             // 
+            this.txt4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt4.AutoSize = true;
             this.txt4.Location = new System.Drawing.Point(45, 538);
             this.txt4.Name = "txt4";
@@ -215,6 +245,8 @@
             // 
             // tbDegrees
             // 
+            this.tbDegrees.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbDegrees.Location = new System.Drawing.Point(318, 422);
             this.tbDegrees.Maximum = 360;
             this.tbDegrees.Name = "tbDegrees";
@@ -224,6 +256,8 @@
             // 
             // lDegree
             // 
+            this.lDegree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lDegree.AutoSize = true;
             this.lDegree.Location = new System.Drawing.Point(455, 422);
             this.lDegree.Name = "lDegree";
@@ -233,6 +267,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(318, 335);
             this.label1.Name = "label1";
@@ -242,6 +278,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(318, 404);
             this.label2.Name = "label2";
@@ -251,6 +289,8 @@
             // 
             // amountPart
             // 
+            this.amountPart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.amountPart.AutoSize = true;
             this.amountPart.Location = new System.Drawing.Point(318, 470);
             this.amountPart.Name = "amountPart";
@@ -260,6 +300,8 @@
             // 
             // isDebug
             // 
+            this.isDebug.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.isDebug.AutoSize = true;
             this.isDebug.Location = new System.Drawing.Point(318, 497);
             this.isDebug.Name = "isDebug";
@@ -267,10 +309,11 @@
             this.isDebug.TabIndex = 22;
             this.isDebug.Text = "Debug";
             this.isDebug.UseVisualStyleBackColor = true;
-           
             // 
             // checkBox2
             // 
+            this.checkBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(318, 522);
             this.checkBox2.Name = "checkBox2";
@@ -281,44 +324,54 @@
             // 
             // checkBox3
             // 
+            this.checkBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(316, 547);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(83, 19);
+            this.checkBox3.Size = new System.Drawing.Size(56, 19);
             this.checkBox3.TabIndex = 24;
-            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.Text = "Radar";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(489, 547);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(489, 543);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(144, 23);
             this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
+            this.button1.Text = "Выбрать цвет частиц";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(489, 339);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(558, 349);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 26;
-            this.button2.Text = "button2";
+            this.button2.Text = "Очистка";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Location = new System.Drawing.Point(489, 497);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(75, 36);
+            this.panel1.Size = new System.Drawing.Size(144, 36);
             this.panel1.TabIndex = 27;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 622);
+            this.ClientSize = new System.Drawing.Size(676, 622);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

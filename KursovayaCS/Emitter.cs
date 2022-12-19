@@ -13,7 +13,7 @@ namespace KursovayaCS
        
         public float x; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public float y; // соответствующая координата Y 
-        public float radius = 0;
+        public float radius = 15;
         public static float direction = 0; // вектор направления в градусах 
         public static float spreading = 360; // разброс частиц относительно Direction
         public static float speedMin = 1; // начальная минимальная скорость движения частицы          --------------------------------- taskBar
@@ -44,20 +44,20 @@ namespace KursovayaCS
             for (int i=0; i<particles.Count; i++)
             { 
 
-                if (particle[i].life <= 0 || parcticle[i].y>=pict.Height || parcticle[i].y<=0
-                    || parcticle[i].x>=pict.Width || parcticle[i].x<=0)
+                if (particles[i].life <= 0 || particles[i].y>=pict.Height || particles[i].y<=0
+                    || particles[i].x>=pict.Width || particles[i].x<=0)
                 {
                     particles.Remove(particles[i]);
                 }  
                 else
                 {     
                     
-                    particle[i].speedX += GravitationX;
-                    particle[i].speedY += GravitationY;
+                    particles[i].speedX += GravitationX;
+                    particles[i].speedY += GravitationY;
 
-                    particle[i].x += particle[i].speedX;
-                    particle[i].y += particle[i].speedY; 
-                    particle[i].life-=1f;
+                    particles[i].x += particles[i].speedX;
+                    particles[i].y += particles[i].speedY; 
+                    particles[i].life-=1f;
                 }
             }
         }

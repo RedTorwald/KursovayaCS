@@ -22,8 +22,8 @@ namespace KursovayaCS
             this.y = y;
             this.color = color;
 
-            var direction=(double)rand.Next(360);
-            var speed=1+rand.Next(10);
+            var direction=Emitter.direction;
+            var speed=rand.Next((int)Emitter.speedMin, (int)Emitter.speedMax);
     
             //вектор скорости
             speedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed); // скорость по X
@@ -60,11 +60,11 @@ namespace KursovayaCS
                 color=Color.FromArgb(0, color);
             }
             
-
+            g.FillEllipse(new SolidBrush(color), x - radius, y - radius, radius * 2, radius * 2);
             if(isDebug)
             {
-                g.FillEllipse(new SolidBrush(color), x - radius, y - radius, radius * 2, radius * 2);
-                if (isActive)
+                g.DrawLine(new Pen(Color.Black), x, y, x + speedX, y + speedY);
+                if (this.isActive)
                 {
                     g.DrawEllipse(new Pen(Color.Black, 1), x - radius, y - radius, radius*2, radius*2);
 					g.DrawString(
@@ -75,7 +75,5 @@ namespace KursovayaCS
                 }
             }
         }
-
-
     }
 }
