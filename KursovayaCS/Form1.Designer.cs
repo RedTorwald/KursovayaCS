@@ -68,7 +68,6 @@
             this.pict.TabIndex = 0;
             this.pict.TabStop = false;
             this.pict.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pict_MouseClick);
-           
             this.pict.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pict_MouseMove);
             // 
             // trackBar1
@@ -158,11 +157,9 @@
             // 
             this.tbLife.Location = new System.Drawing.Point(318, 353);
             this.tbLife.Maximum = 200;
-            this.tbLife.Minimum = 100;
             this.tbLife.Name = "tbLife";
             this.tbLife.Size = new System.Drawing.Size(104, 45);
             this.tbLife.TabIndex = 10;
-            this.tbLife.Value = 100;
             this.tbLife.Scroll += new System.EventHandler(this.tbLife_Scroll);
             // 
             // lLife
@@ -170,9 +167,9 @@
             this.lLife.AutoSize = true;
             this.lLife.Location = new System.Drawing.Point(455, 353);
             this.lLife.Name = "lLife";
-            this.lLife.Size = new System.Drawing.Size(13, 15);
+            this.lLife.Size = new System.Drawing.Size(19, 15);
             this.lLife.TabIndex = 11;
-            this.lLife.Text = "0";
+            this.lLife.Text = "20";
             // 
             // txt1
             // 

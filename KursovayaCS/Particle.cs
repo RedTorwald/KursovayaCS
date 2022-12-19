@@ -9,14 +9,12 @@ namespace KursovayaCS
     internal class Particle
     {
         public static Random rand = new Random();
-        public float Life, X, Y;       
-        public int Radius; // радиус частицы             
-        public float SpeedX, SpeedY;    
-        
-        public Color FromColor=Color.Crimson;
-        public Color ToColor=Color.DarkSeaGreen;
+        public float life, X, Y;       
+        public int radius; // радиус частицы             
+        public float speedX, speedY;
+        public Color color;
+        public bool isActive = false;
 
-        
 
         public Particle()  // конструктор частицы
         {            
@@ -24,12 +22,12 @@ namespace KursovayaCS
             var speed=1+rand.Next(10);
     
             //вектор скорости
-            SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed); // скорость по X
-            SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed); // скорость по Y
+            speedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed); // скорость по X
+            speedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed); // скорость по Y
                       
         
-            Radius = 2 + rand.Next(10); //Рандомный радиус
-            Life = 20 + rand.Next(100); //Рандомная длительность жизни частицы
+            radius = 2 + rand.Next(10); //Рандомный радиус
+            life =0+ rand.Next(100); //Рандомная длительность жизни частицы
         }
 
         public static Color MixColor(Color color1, Color color2, float k)
@@ -45,13 +43,15 @@ namespace KursovayaCS
         public virtual void Draw(Graphics g)  // метод создания частицы
         {
             //затухание
-            float k = Math.Min(1f, Life / 100);           
+            float k = Math.Min(1f, life / 100);           
             int alpha = (int)(k * 255);            
             var color = MixColor(ToColor, FromColor, k);            
             var b = new SolidBrush(color); 
         
-            g.FillEllipse(b, X - Radius, Y - Radius, Radius * 2, Radius * 2); 
+            g.FillEllipse(b, X - radius, Y - radius, radius * 2, radius * 2); 
             b.Dispose(); //очитска сборщиком мусора
         }
+
+
     }
 }

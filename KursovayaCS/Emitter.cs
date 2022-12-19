@@ -10,6 +10,10 @@ namespace KursovayaCS
     internal class Emitter
     {
         public List<Particle> particles = new List<Particle>();
+       
+        public List<PointCounter> counters = new List<PointCounter>();
+
+
 
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
@@ -21,7 +25,7 @@ namespace KursovayaCS
         public int RadiusMax = 10; // максимальный радиус частицы                            --------------------------------- taskBar
 
 
-        public int LifeMin = 20; // минимальное время жизни частицы
+        public int LifeMin = 0; // минимальное время жизни частицы
         public int LifeMax = 100; // максимальное время жизни частицы              
         
         public int MousePositionX;
@@ -40,7 +44,7 @@ namespace KursovayaCS
 
         public virtual void ResetParticle(Particle particle)  //создание частицы
         {
-            particle.Life = Particle.rand.Next(LifeMin, LifeMax);
+            particle.life = Particle.rand.Next(LifeMin, LifeMax);
             particle.X = MousePositionX;
             particle.Y = MousePositionY;
 
@@ -50,10 +54,10 @@ namespace KursovayaCS
 
             var speed = Particle.rand.Next(SpeedMin, SpeedMax);
 
-            particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
-            particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
+            particle.speedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
+            particle.speedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
-            particle.Radius = Particle.rand.Next(RadiusMin, RadiusMax);
+            particle.radius = Particle.rand.Next(RadiusMin, RadiusMax);
         }
         
 
@@ -65,8 +69,6 @@ namespace KursovayaCS
             return particle;
         }
 
-       
-
         public void UpdateState()
         {   
             amountParticles+=particles.Count();
@@ -74,7 +76,23 @@ namespace KursovayaCS
             
             foreach (var particle in particles)
             { 
-                if (particle.Life <= 0) // если частицы умерла
+        /*
+                foreach (var point in impactPoints)//-------------------------------------------------------------------------------------
+                {
+                    point.ImpactParticle(particle);
+                }*/
+
+
+                foreach (var point in counters)//-------------------------------------------------------------------------------------
+                {
+                    point.IntersectionParticle(particle);
+                }
+
+               
+
+
+
+                if (particle.life <= 0) // если частицы умерла
                 {
                     /* 
                      * то проверяем надо ли создать частицу
@@ -85,18 +103,15 @@ namespace KursovayaCS
                         particlesToCreate -= 1; // поэтому уменьшаем счётчик созданных частиц на 1
                         ResetParticle(particle);
                     }
-                }
-               
-                
+                }  
                 else
                 {     
                     // это не трогаем
-                    particle.SpeedX += GravitationX;
-                    particle.SpeedY += GravitationY;
+                    particle.speedX += GravitationX;
+                    particle.speedY += GravitationY;
 
-                    particle.X += particle.SpeedX;
-                    particle.Y += particle.SpeedY;
-                    
+                    particle.X += particle.speedX;
+                    particle.Y += particle.speedY;                    
                 }
             }
             while (particlesToCreate >= 1)
@@ -106,8 +121,8 @@ namespace KursovayaCS
                 ResetParticle(particle);
                 particles.Add(particle); 
                 
-            }
-           
+            }    
+            
         }
         
         public virtual void Render(Graphics g) // метод Render
@@ -117,5 +132,7 @@ namespace KursovayaCS
                 particle.Draw(g);
             }            
         }
+        
+
     }
 }
