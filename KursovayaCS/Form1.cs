@@ -127,11 +127,13 @@ namespace KursovayaCS
         //--------------------------------------------------------------------------------------
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Emitter.speedMin = trackBar1.Value;    
+            Emitter.speedMin = trackBar1.Value;
+            l1.Text = trackBar1.Value.ToString(); 
         }
         private void tb2_Scroll(object sender, EventArgs e)
         {
-            Emitter.speedMax = tb2.Value;        
+            Emitter.speedMax = tb2.Value;
+            l2.Text = tb2.Value.ToString();
         }
         private void trackBar3_Scroll(object sender, EventArgs e)
         {

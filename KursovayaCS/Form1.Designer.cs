@@ -132,7 +132,7 @@
             this.l1.Name = "l1";
             this.l1.Size = new System.Drawing.Size(13, 15);
             this.l1.TabIndex = 5;
-            this.l1.Text = "0";
+            this.l1.Text = "1";
             // 
             // l3
             // 
@@ -174,11 +174,11 @@
             // 
             this.tbLife.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbLife.Location = new System.Drawing.Point(318, 353);
-            this.tbLife.Maximum = 200;
+            this.tbLife.Maximum = 250;
             this.tbLife.Name = "tbLife";
             this.tbLife.Size = new System.Drawing.Size(104, 45);
             this.tbLife.TabIndex = 10;
-            this.tbLife.Value = 200;
+            this.tbLife.Value = 250;
             this.tbLife.Scroll += new System.EventHandler(this.tbLife_Scroll);
             // 
             // lLife
@@ -187,9 +187,9 @@
             this.lLife.AutoSize = true;
             this.lLife.Location = new System.Drawing.Point(455, 353);
             this.lLife.Name = "lLife";
-            this.lLife.Size = new System.Drawing.Size(19, 15);
+            this.lLife.Size = new System.Drawing.Size(25, 15);
             this.lLife.TabIndex = 11;
-            this.lLife.Text = "20";
+            this.lLife.Text = "250";
             // 
             // txt1
             // 
