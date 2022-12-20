@@ -21,7 +21,6 @@ namespace KursovayaCS
         public static float radiusMin = 2; // минимальный радиус частицы
         public static float radiusMax = 10; // максимальный радиус частицы                            --------------------------------- taskBar
 
-
         public static float lifeMin = 0; // минимальное время жизни частицы
         public static float lifeMax = 255; // максимальное время жизни частицы
         public Color color;
@@ -35,9 +34,7 @@ namespace KursovayaCS
             this.y = y;
             this.color = color;
         }
-        
-       
-
+               
         public void UpdateState(PictureBox pict)
         {  
 

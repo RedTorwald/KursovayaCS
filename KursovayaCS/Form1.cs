@@ -165,6 +165,8 @@ namespace KursovayaCS
             pointCounters.Clear();
         }
 
+      
+
         private void button1_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();

@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 namespace KursovayaCS
 {
     internal class PointCounter
-    {
-          
+    {          
         public int radius;    // радиус  
         public float positionX; // координата X 
         public float positionY; // соответствующая координата Y 
-        public double r;
         public int count;
             
         public PointCounter(float PositionX, float PositionY)  // конструктор частицы
@@ -50,7 +48,6 @@ namespace KursovayaCS
 			    }
             }           
         }
-
 
         public virtual void Draw(Graphics g)  // метод создания частицы
         {            

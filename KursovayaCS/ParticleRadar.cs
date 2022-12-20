@@ -21,9 +21,8 @@ namespace KursovayaCS
 				float gX = this.x - particles[i].x;
 				float gY = this.y - particles[i].y;
 
-				double r = Math.Sqrt(gX * gX + gY * gY); // считаем расстояние от центра точки до центра частицы
-
-				if (r < this.r + particles[i].radius) // если частица оказалось внутри окружности
+				double r = Math.Sqrt(gX * gX + gY * gY); 
+				if (r < this.r + particles[i].radius) 
 				{
 					count++;
 				}
